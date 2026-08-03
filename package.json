@@ -1,0 +1,24 @@
+{
+  "name": "@tarx-ai/integration-patterns",
+  "version": "0.1.0",
+  "description": "Public TARX patterns for safe Eve and Vercel Connect integrations",
+  "license": "Apache-2.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "tsx --test test/**/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@vercel/connect": "0.6.0",
+    "eve": "0.27.13"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.0",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  }
+}

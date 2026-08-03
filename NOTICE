@@ -1,0 +1,6 @@
+TARX Integration Patterns
+Copyright 2026 TARXAN Inc.
+
+This project depends on Eve and Vercel Connect, Apache License 2.0 projects
+maintained by Vercel. No Eve or Vercel Connect implementation source is vendored
+or represented as TARX-authored code in this repository.
