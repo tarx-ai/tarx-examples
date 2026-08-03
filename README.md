@@ -1,18 +1,66 @@
-# tarx-examples
+# TARX Integration Patterns
 
-**TARX** product surface · **TARXAN Inc**
+Public, testable patterns for connecting an Eve agent to the services where developers already work.
 
-This repository is a public beachhead for the TARX ecosystem.
+This repository is intentionally narrower than TARX Computer. It contains example configuration and TARX-authored safety helpers. It does **not** contain TARX Computer source, TARX's private runtime, credentials, customer data, or Supercomputer infrastructure.
 
-| Term | Meaning |
-|------|---------|
-| TARXAN Inc | Company |
-| TARX | Product |
-| TARX Desktop | Desktop app ([tarx-desktop](https://github.com/tarx-ai/tarx-desktop)) |
+## Current status
 
-- Product: https://tarx.com
-- Download: https://tarx.com/download
-- Docs: https://docs.tarx.com
-- MCP: https://mcp.tarx.com
+| Pattern | Source | Typechecked | Live connector proof | Upstream validation |
+|---|---:|---:|---:|---:|
+| GitHub channel | Yes | Yes | No | No |
+| Slack channel | Yes | Yes | No | No |
+| Linear channel | Yes | Yes | No | No |
+| TARX effect/approval policy | Yes | Yes | Unit tested | TARX-owned |
 
-Status: scaffold for public surface polish (2026-07). Content expands with design partners.
+`Source` means the example exists. It does not mean the provider is installed, authorized, deployed, or available in TARX Computer.
+
+## Why this exists
+
+An integration is credible only when its source is inspectable, its permissions are narrow, its consequential actions are approval-gated, and an outsider can reproduce the result.
+
+The operating sequence is:
+
+1. Publish the smallest useful pattern.
+2. Typecheck and test it.
+3. Connect a real provider account with the minimum scopes.
+4. Capture an outside-in proof with exact versions and limitations.
+5. Contribute reproducible fixes or documentation upstream.
+
+## Patterns
+
+- [`examples/github-channel`](examples/github-channel/README.md) — GitHub App webhooks and native issue/PR replies through Vercel Connect.
+- [`examples/slack-channel`](examples/slack-channel/README.md) — Slack mentions and DMs through Vercel Connect.
+- [`examples/linear-channel`](examples/linear-channel/README.md) — Linear Agent Sessions through Vercel Connect.
+- [`src/integration-policy.ts`](src/integration-policy.ts) — a framework-neutral effect and approval policy for adapter authors.
+
+All channel examples pin `eve@0.27.13` and `@vercel/connect@0.6.0`, the versions inspected when this repository was activated.
+
+## Run the checks
+
+```bash
+npm install
+npm test
+npm run typecheck
+```
+
+These checks validate source and policy behavior only. Live provider verification requires a configured Vercel project, a Connect client, an authorized provider installation, and provider-generated webhook traffic.
+
+## Security rules
+
+- Never commit provider tokens, private keys, webhook secrets, connector exports, or local TARX state.
+- Keep provider credentials outside model context. The examples use Vercel Connect's credential helpers.
+- Treat reads, writes, deletes, and publishing as different effect classes.
+- Require explicit human approval for consequential actions.
+- Use allowlists for remote tools and scopes.
+- Label every integration `source`, `typechecked`, `live-verified`, or `upstream-validated`; do not collapse those states.
+
+See [SECURITY.md](SECURITY.md) and [docs/verification.md](docs/verification.md).
+
+## Relationship to Eve
+
+TARX uses Eve's public package APIs. Eve is an Apache-2.0 project maintained by Vercel. These examples depend on Eve; they do not copy, vendor, or rebrand Eve implementation code. Framework issues and fixes should be contributed to [vercel/eve](https://github.com/vercel/eve).
+
+## License
+
+Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
