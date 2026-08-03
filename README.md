@@ -1,19 +1,19 @@
 # TARX Integration Patterns
 
-Public, testable patterns for connecting an Eve agent to the services where developers already work.
+Public, testable integration contracts and vendor-specific reference configuration.
 
 This repository is intentionally narrower than TARX Computer. It contains example configuration and TARX-authored safety helpers. It does **not** contain TARX Computer source, TARX's private runtime, credentials, customer data, or Supercomputer infrastructure.
 
 ## Current status
 
-| Pattern | Source | Typechecked | Live connector proof | Upstream validation |
-|---|---:|---:|---:|---:|
-| GitHub channel | Yes | Yes | No | No |
-| Slack channel | Yes | Yes | No | No |
-| Linear channel | Yes | Yes | No | No |
-| TARX effect/approval policy | Yes | Yes | Unit tested | TARX-owned |
+| Surface | Kind | Source | Typechecked | Live connector proof | Upstream validation |
+|---|---|---:|---:|---:|---:|
+| TARX adapter contract | Framework-neutral | Yes | Yes | Unit tested | TARX-owned |
+| GitHub channel | Eve reference configuration | Yes | Yes | No | No |
+| Slack channel | Eve reference configuration | Yes | Yes | No | No |
+| Linear channel | Eve reference configuration | Yes | Yes | No | No |
 
-`Source` means the example exists. It does not mean the provider is installed, authorized, deployed, or available in TARX Computer.
+`Source` means the contract or reference configuration exists. It does not mean the provider is installed, authorized, deployed, or available in TARX Computer. The Eve channel files are vendor-specific recipes, not TARX adapter implementations.
 
 ## Why this exists
 
@@ -29,12 +29,14 @@ The operating sequence is:
 
 ## Patterns
 
+- [`src/integration-adapter.ts`](src/integration-adapter.ts) — the framework-neutral TARX adapter boundary.
+- [`docs/architecture.md`](docs/architecture.md) — public API shape, trust boundary, and promotion rules.
 - [`examples/github-channel`](examples/github-channel/README.md) — GitHub App webhooks and native issue/PR replies through Vercel Connect.
 - [`examples/slack-channel`](examples/slack-channel/README.md) — Slack mentions and DMs through Vercel Connect.
 - [`examples/linear-channel`](examples/linear-channel/README.md) — Linear Agent Sessions through Vercel Connect.
 - [`src/integration-policy.ts`](src/integration-policy.ts) — a framework-neutral effect and approval policy for adapter authors.
 
-All channel examples pin `eve@0.27.13` and `@vercel/connect@0.6.0`, the versions inspected when this repository was activated.
+All channel reference configurations pin `eve@0.27.13` and `@vercel/connect@0.6.0`, the versions inspected when this repository was activated. Eve is a public framework dependency; it is not copied or exposed as TARX runtime source.
 
 ## Run the checks
 
@@ -50,6 +52,7 @@ These checks validate source and policy behavior only. Live provider verificatio
 
 - Never commit provider tokens, private keys, webhook secrets, connector exports, or local TARX state.
 - Keep provider credentials outside model context. The examples use Vercel Connect's credential helpers.
+- Public TARX developers should depend on the framework-neutral adapter contract, not Eve sessions, private connector IDs, or TARX runtime internals.
 - Treat reads, writes, deletes, and publishing as different effect classes.
 - Require explicit human approval for consequential actions.
 - Use allowlists for remote tools and scopes.

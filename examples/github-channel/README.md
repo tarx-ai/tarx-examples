@@ -2,7 +2,7 @@
 
 Status: **source + typechecked**. No live TARX connector proof yet.
 
-This pattern receives GitHub App webhooks through Vercel Connect and lets Eve reply in issues and pull requests. The Connect helper owns installation-token resolution and webhook verification; the source contains no GitHub private key or webhook secret.
+This vendor-specific reference configuration receives GitHub App webhooks through Vercel Connect and lets Eve reply in issues and pull requests. It is not the TARX framework-neutral adapter implementation. The Connect helper owns installation-token resolution and webhook verification; the source contains no GitHub private key or webhook secret.
 
 ## Minimum path to verification
 

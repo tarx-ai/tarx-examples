@@ -2,7 +2,7 @@
 
 Status: **source + typechecked**. No live TARX connector proof yet.
 
-This pattern receives Slack Event Subscriptions through Vercel Connect and lets Eve respond to mentions and direct messages. The Connect helper owns bot-token resolution and webhook verification.
+This vendor-specific reference configuration receives Slack Event Subscriptions through Vercel Connect and lets Eve respond to mentions and direct messages. It is not the TARX framework-neutral adapter implementation. The Connect helper owns bot-token resolution and webhook verification.
 
 ## Minimum path to verification
 
