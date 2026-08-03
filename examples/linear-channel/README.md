@@ -2,7 +2,7 @@
 
 Status: **source + typechecked**. No live TARX connector proof yet.
 
-This pattern receives Linear Agent Session events through Vercel Connect and lets Eve post native Agent Activities. The Connect helper owns access-token resolution and webhook verification.
+This vendor-specific reference configuration receives Linear Agent Session events through Vercel Connect and lets Eve post native Agent Activities. It is not the TARX framework-neutral adapter implementation. The Connect helper owns access-token resolution and webhook verification.
 
 ## Minimum path to verification
 
