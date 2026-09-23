@@ -31,6 +31,7 @@ The operating sequence is:
 
 - [`src/integration-adapter.ts`](src/integration-adapter.ts) — the framework-neutral TARX adapter boundary.
 - [`docs/architecture.md`](docs/architecture.md) — public API shape, trust boundary, and promotion rules.
+- [`docs/developer-surface/API.md`](docs/developer-surface/API.md) — TARX OS local developer API. Howdy is an archive, not the portal.
 - [`examples/github-channel`](examples/github-channel/README.md) — GitHub App webhooks and native issue/PR replies through Vercel Connect.
 - [`examples/slack-channel`](examples/slack-channel/README.md) — Slack mentions and DMs through Vercel Connect.
 - [`examples/linear-channel`](examples/linear-channel/README.md) — Linear Agent Sessions through Vercel Connect.
