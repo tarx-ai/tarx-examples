@@ -32,7 +32,7 @@ export class SqliteIdempotencyStore implements IdempotencyStore {
     if (!sqlite) throw new Error("SqliteIdempotencyStore needs Node 24 (node:sqlite).");
     if (path !== ":memory:") mkdirSync(dirname(path), { recursive: true });
     this.db = new sqlite.DatabaseSync(path);
-    this.db.exec("PRAGMA journal_mode=WAL; PRAGMA busy_timeout=2000; CREATE TABLE IF NOT EXISTS seen (key TEXT PRIMARY KEY, exp INTEGER NOT NULL);");
+    this.db.exec("PRAGMA journal_mode=WAL; PRAGMA busy_timeout=2000; CREATE TABLE IF NOT EXISTS seen (key TEXT PRIMARY KEY, exp INTEGER NOT NULL); CREATE INDEX IF NOT EXISTS idx_seen_exp ON seen(exp);");
     // Insert, or take over an expired row. `changes` is 1 only for the winner.
     this.claimStmt = this.db.prepare("INSERT INTO seen (key, exp) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET exp = excluded.exp WHERE seen.exp <= ?");
     this.pruneStmt = this.db.prepare("DELETE FROM seen WHERE exp <= ?");

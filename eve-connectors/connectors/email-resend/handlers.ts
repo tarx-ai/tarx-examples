@@ -10,7 +10,11 @@ export function addressOf(from: string): string {
 export function addressedTo(email: { to?: string[] | null }, domain: string | undefined): boolean {
   const d = (domain ?? "").trim().toLowerCase();
   if (!d) return true;
-  return (email.to ?? []).some((t) => addressOf(t).toLowerCase().endsWith("@" + d));
+  return (email.to ?? []).some((t) => {
+    const a = addressOf(t);
+    const at = a.lastIndexOf("@");
+    return at >= 0 && a.slice(at + 1) === d;
+  });
 }
 
 /** Anti-spoofing: the receiving server's SPF/DKIM/DMARC verdict (not forgeable headers) + exact allowlist. */

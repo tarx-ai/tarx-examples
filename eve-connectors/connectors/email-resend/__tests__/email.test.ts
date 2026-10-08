@@ -10,6 +10,7 @@ describe("email-resend helpers", () => {
     expect(addressedTo({ to: ["TARX <agent@in.example.com>"] }, "in.example.com")).toBe(true);
     expect(addressedTo({ to: ["agent@example.com"] }, "in.example.com")).toBe(false);
     expect(addressedTo({ to: ["x@evil-in.example.com"] }, "in.example.com")).toBe(false);
+    expect(addressedTo({ to: ["a@sub.in.example.com"] }, "in.example.com")).toBe(false);
     expect(addressedTo({ to: ["a@b.c"] }, undefined)).toBe(true);
   });
   it("svix: valid, rotated multi-signature header, tampered, stale, missing", () => {

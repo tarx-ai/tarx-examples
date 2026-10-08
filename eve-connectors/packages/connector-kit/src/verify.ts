@@ -43,7 +43,7 @@ export function verifySvix(
   if (!h.id || !h.timestamp || !h.signature || !/^\d+$/.test(h.timestamp)) return false;
   if (Math.abs(nowSec - Number(h.timestamp)) > toleranceSec) return false;
   const expected = svixSign(secret, h.id, h.timestamp, body);
-  return h.signature.split(" ").some((entry) => {
+  return h.signature.trim().split(/\s+/).some((entry) => {
     const [version, sig] = entry.split(",", 2);
     return version === "v1" && !!sig && safeEqual(sig, expected);
   });

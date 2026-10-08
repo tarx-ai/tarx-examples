@@ -6,9 +6,14 @@ import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
  * (no tunnel). ngrok only carries inbound provider webhooks. Set TARX_MODEL_BASE_URL to the local
  * OpenAI-compatible endpoint (".../v1"); verify with `npm run check:model`.
  */
+const baseURL = process.env.TARX_MODEL_BASE_URL;
+if (!baseURL) {
+  throw new Error("TARX_MODEL_BASE_URL missing (set to http://127.0.0.1:<port>/v1)");
+}
+
 const tarx = createOpenAICompatible({
   name: "tarx",
-  baseURL: process.env.TARX_MODEL_BASE_URL ?? "http://127.0.0.1:0/v1", // placeholder; set via env
+  baseURL,
   apiKey: process.env.TARX_MODEL_API_KEY ?? "tarx-local",
 });
 

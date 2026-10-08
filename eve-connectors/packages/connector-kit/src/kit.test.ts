@@ -27,7 +27,9 @@ describe("connector-kit", () => {
   it("parseRetryAfter: seconds and HTTP-date; Retry-After capped at maxMs", async () => {
     const { parseRetryAfter } = await import("./retry.js");
     expect(parseRetryAfter("7")).toBe(7);
+    expect(parseRetryAfter("0")).toBeUndefined();
     expect(parseRetryAfter(new Date(10_000).toUTCString(), 0)).toBe(10);
+    expect(parseRetryAfter(new Date(-5_000).toUTCString(), 0)).toBeUndefined();
     expect(parseRetryAfter("soon")).toBeUndefined();
     const sleeps: number[] = [];
     let n = 0;

@@ -51,9 +51,15 @@ export async function ensureOk(res: Response): Promise<Response> {
 export function parseRetryAfter(v: string | null, now = Date.now()): number | undefined {
   if (!v) return undefined;
   const s = v.trim();
-  if (/^\d+$/.test(s)) return Number(s);
+  if (/^\d+$/.test(s)) {
+    const n = Number(s);
+    return n > 0 ? n : undefined;
+  }
   const d = Date.parse(s);
-  return Number.isNaN(d) ? undefined : Math.max(0, Math.ceil((d - now) / 1000));
+  if (Number.isNaN(d)) return undefined;
+  // A past or zero delay must not become a 0ms spin. Drop it so withRetry uses exponential backoff.
+  const sec = Math.ceil((d - now) / 1000);
+  return sec > 0 ? sec : undefined;
 }
 
 /** fetch() network failures surface as TypeError; timeouts as AbortError/TimeoutError. Programming errors are not retried. */
