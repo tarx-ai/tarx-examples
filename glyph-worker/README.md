@@ -20,7 +20,7 @@ Every call writes a line to `runs/<session>/calls.jsonl`: `session, profile, tas
    - email addresses outside RFC 2606 example domains, phone numbers outside +1-555
    - your own `GLYPH_DENY_TERMS`
 
-   Files are read only if their real path (no symlinks) is inside `GLYPH_PUBLIC_ROOT` and on `GLYPH_PUBLIC_PATHS`. `.env*` (except `.env.example`), `.data`, `.eve`, `node_modules`, `runs`, and key files are always denied. Review of a PR is allowed only if the unauthenticated GitHub API reports the repo as **public**. Model *outputs* (patches, dataset rows) are scanned too. Findings name the rule, never the matched text.
+   Files are read only if their real path (no symlinks) is inside `GLYPH_PUBLIC_ROOT` and on `GLYPH_PUBLIC_PATHS`. `.env*` (except `.env.example`), `.data`, `.eve`, `node_modules`, and key files are always denied. `runs/` is denied except published `glyph-worker/runs/smoke-*` evidence. Review of a PR is allowed only if the unauthenticated GitHub API reports the repo as **public**. Model *outputs* (patches, dataset rows) are scanned too. Findings name the rule, never the matched text.
 2. **$0 price guard**, run before every request:
    - the model must be listed, and every catalog and endpoint price (including tiers) must be exactly `0`
    - in strict mode, the team's AI Gateway `total_used` (`/v1/credits`) must not move during the run

@@ -80,12 +80,15 @@ export function assertPublic(text: string, where: string, opts: GuardOptions = {
 }
 
 const DENY_PATH = /(^|\/)(\.data|\.eve|node_modules|\.git|runs)(\/|$)|\.(pem|key|p12|sqlite|db)$|(^|\/)(id_rsa|id_ed25519)/i;
+/** Published smoke evidence only. Other runs/ stay denied so a local session cannot be read back into a prompt. */
+const SMOKE_RUN = /^glyph-worker\/runs\/smoke-[A-Za-z0-9._-]+(\/|$)/;
 const ENV_FILE = /(^|\/)\.env(\.[^/]*)?$/; // .env, .env.local, ... (but .env.example is allowed: placeholders only)
 
 /** Checks that a repo-relative path is on the public allowlist (prefix match, "dir/" or exact file). */
 export function isAllowedPath(rel: string, allow: readonly string[]): boolean {
   const p = rel.split(sep).join("/").replace(/^\.\//, "");
-  if (!p || p.startsWith("../") || p.startsWith("/") || DENY_PATH.test(p)) return false;
+  if (!p || p.startsWith("../") || p.startsWith("/")) return false;
+  if (DENY_PATH.test(p) && !SMOKE_RUN.test(p)) return false;
   if (ENV_FILE.test(p) && !p.endsWith(".env.example")) return false;
   return allow.some((a) => (a.endsWith("/") ? p.startsWith(a) : p === a));
 }

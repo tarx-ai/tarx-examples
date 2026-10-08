@@ -57,6 +57,9 @@ test("path allowlist and file reads", () => {
   assert.equal(isAllowedPath("../secrets.txt", allow), false);
   assert.equal(isAllowedPath("src/private.ts", allow), false);
   assert.equal(isAllowedPath("README.md", allow), true);
+  const smokeAllow = ["glyph-worker/"];
+  assert.equal(isAllowedPath("glyph-worker/runs/smoke-dataset-sms/dataset.jsonl", smokeAllow), true);
+  assert.equal(isAllowedPath("glyph-worker/runs/local-session/calls.jsonl", smokeAllow), false);
 
   const root = mkdtempSync(join(tmpdir(), "gw-root-"));
   const outside = mkdtempSync(join(tmpdir(), "gw-out-"));
