@@ -1,0 +1,31 @@
+{
+  "name": "@tarx-ai/eve-connectors",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "info": "EVE_TELEMETRY_DISABLED=1 eve info",
+    "build": "EVE_TELEMETRY_DISABLED=1 eve build",
+    "start": "EVE_TELEMETRY_DISABLED=1 eve start --host 127.0.0.1 --port ${PORT:-3000}",
+    "tunnel": "ngrok http --url=${NGROK_DOMAIN:?set NGROK_DOMAIN} ${PORT:-3000}",
+    "check:model": "curl -fsS ${TARX_MODEL_BASE_URL:?set TARX_MODEL_BASE_URL}/models"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
+  },
+  "dependencies": {
+    "@ai-sdk/openai-compatible": "^3.0.66",
+    "ai": "^7.0.133",
+    "eve": "^0.74.0",
+    "zod": "^3.25.76"
+  },
+  "optionalDependencies": {
+    "@vercel/connect": "^2.4.1"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  }
+}

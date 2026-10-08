@@ -1,0 +1,34 @@
+# Slack app for TARX (Mode B: local eve behind ngrok).
+# api.slack.com/apps -> Create New App -> From a manifest -> pick workspace -> paste this.
+# Replace YOUR-NGROK-DOMAIN (e.g. your-name.ngrok-free.app) in BOTH request_url fields first.
+display_information:
+  name: TARX
+  description: Talk to TARX from Slack. DMs and @mentions; replies in thread.
+  background_color: "#111111"
+features:
+  app_home:
+    home_tab_enabled: false
+    messages_tab_enabled: true          # lets you DM the bot
+    messages_tab_read_only_enabled: false
+  bot_user:
+    display_name: TARX
+    always_online: true
+oauth_config:
+  scopes:
+    bot:
+      - app_mentions:read   # @TARX in channels
+      - chat:write          # replies
+      - im:history          # read DMs sent to TARX
+      - im:write            # open DMs (private auth prompts / proactive DMs)
+settings:
+  event_subscriptions:
+    request_url: https://YOUR-NGROK-DOMAIN/eve/v1/slack
+    bot_events:
+      - app_mention
+      - message.im
+  interactivity:
+    is_enabled: true                    # approval buttons (HITL)
+    request_url: https://YOUR-NGROK-DOMAIN/eve/v1/slack
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false
