@@ -1,0 +1,12 @@
+{
+  "touched": [
+    "eve-connectors/packages/connector-kit/src/telemetry.test.ts"
+  ],
+  "offAllowlist": [],
+  "outputGuard": "ok",
+  "applyCheck": {
+    "ok": true,
+    "output": ""
+  },
+  "nextStep": "Human/TARX review required. Glyph never commits or pushes."
+}

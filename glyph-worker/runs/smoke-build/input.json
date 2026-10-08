@@ -1,0 +1,8 @@
+{
+  "task": "Add a new vitest file eve-connectors/packages/connector-kit/src/telemetry.test.ts that tests datadogTelemetry with an injected fetchImpl and apiKey (no network): (1) onTurnLatency posts metric tarx.connector.turn_ms with the latency value and tag connector:<name>; (2) onAck posts tarx.connector.ack_ms; (3) onRejected tags reason:<reason>; (4) the request uses the DD-API-KEY header and the configured site; (5) a rejected fetch is swallowed (no unhandled rejection); (6) payloads never contain message text passed in tags. Also test that noopTelemetry methods are callable and return undefined. Keep it deterministic (fake timers or tolerance for timestamp). Only add the test file; do not modify telemetry.ts.",
+  "files": [
+    "eve-connectors/packages/connector-kit/src/telemetry.ts",
+    "eve-connectors/packages/connector-kit/src/kit.test.ts",
+    "eve-connectors/vitest.config.ts"
+  ]
+}

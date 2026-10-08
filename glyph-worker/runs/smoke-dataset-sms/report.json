@@ -1,0 +1,24 @@
+{
+  "channel": "sms",
+  "requested": 20,
+  "accepted": 20,
+  "rejected": 0,
+  "rejectReasons": {},
+  "edgeCaseCoverage": {
+    "none": 4,
+    "duplicate_delivery": 3,
+    "opt_out": 2,
+    "help_keyword": 2,
+    "opt_in_resume": 2,
+    "long_context": 2,
+    "non_allowlisted_sender": 2,
+    "unicode_emoji": 3,
+    "multi_segment": 2,
+    "rapid_fire": 2,
+    "out_of_order": 1,
+    "media_only": 1
+  },
+  "turnsMin": 3,
+  "turnsMax": 8,
+  "turnsMean": 5.2
+}
