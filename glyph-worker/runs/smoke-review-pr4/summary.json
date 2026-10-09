@@ -1,0 +1,11 @@
+{
+  "chunks": 1,
+  "files": 49,
+  "verdicts": [
+    "REQUEST_CHANGES"
+  ],
+  "high": 2,
+  "med": 6,
+  "low": 7,
+  "nextStep": "TARX agent triages findings; a human decides. Glyph never comments or pushes."
+}

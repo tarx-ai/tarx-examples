@@ -1,0 +1,1 @@
+{"reason":"invalid JSON","line":"{\"schema\":\"tarx.conversation.v1\",\"channel\":\"slack\",\"scenario\":\"The owner creates a thread to ask for a long form breakdown, keeping all responses consolidated.\",\"edge_cases\":[\"threading\",\"long_context"}

@@ -1,0 +1,8 @@
+node_modules/
+# Local sessions stay untracked. Published smoke evidence is the exception.
+runs/*
+!runs/smoke-*/
+.env
+.env.*
+!.env.example
+*.key

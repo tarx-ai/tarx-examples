@@ -1,0 +1,25 @@
+{
+  "chunks": 16,
+  "files": 224,
+  "verdicts": [
+    "REQUEST_CHANGES",
+    "REQUEST_CHANGES",
+    "REQUEST_CHANGES",
+    "APPROVE",
+    "REQUEST_CHANGES",
+    "REQUEST_CHANGES",
+    "REQUEST_CHANGES",
+    "REQUEST_CHANGES",
+    "REQUEST_CHANGES",
+    "REQUEST_CHANGES",
+    "REQUEST_CHANGES",
+    "REQUEST_CHANGES",
+    "REQUEST_CHANGES",
+    "REQUEST_CHANGES",
+    "REQUEST_CHANGES"
+  ],
+  "high": 42,
+  "med": 59,
+  "low": 23,
+  "nextStep": "TARX agent triages findings; a human decides. Glyph never comments or pushes."
+}

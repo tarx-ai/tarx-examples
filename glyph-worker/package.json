@@ -1,0 +1,19 @@
+{
+  "name": "@tarx-ai/glyph-worker",
+  "version": "0.1.0",
+  "description": "Guarded, $0 worker for the stealth/glyph-cluster model on Vercel AI Gateway: build drafts, synthetic datasets, and code reviews. It never pushes.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "private": true,
+  "bin": { "glyph-worker": "./src/cli.ts" },
+  "scripts": {
+    "glyph": "node src/cli.ts",
+    "test": "node --test test/*.test.ts",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "devDependencies": {
+    "@types/node": "24.10.0",
+    "typescript": "5.9.3"
+  },
+  "engines": { "node": ">=24 <25" }
+}

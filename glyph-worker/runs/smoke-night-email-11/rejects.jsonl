@@ -1,0 +1,1 @@
+{"reason":"invalid JSON","line":"{\"schema\":\"tarx.conversation.v1\",\"channel\":\"email\",\"scenario\":\"Morgan follows up on a project recap and threads their response to an existing email chain about deliverables.\",\"edge_cases\":[\"threading\""}

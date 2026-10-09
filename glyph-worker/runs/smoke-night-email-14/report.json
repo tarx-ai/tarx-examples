@@ -1,0 +1,33 @@
+{
+  "channel": "email",
+  "requested": 40,
+  "generated": 48,
+  "accepted": 40,
+  "rejected": 0,
+  "surplusDropped": 8,
+  "replyCountMismatch": [
+    "email-cffa404292",
+    "email-6af252c738",
+    "email-51fd0c5a8f",
+    "email-785b3241cb"
+  ],
+  "duplicateTagWithoutRef": [],
+  "rejectReasons": {},
+  "edgeCaseCoverage": {
+    "duplicate_delivery": 7,
+    "threading": 14,
+    "long_context": 11,
+    "none": 9,
+    "non_allowlisted_sender": 3,
+    "unicode_emoji": 4,
+    "rapid_fire": 4,
+    "out_of_order": 3,
+    "media_only": 2,
+    "approval_prompt": 3,
+    "provider_error_retry": 3,
+    "ambiguous_request": 2
+  },
+  "turnsMin": 3,
+  "turnsMax": 7,
+  "turnsMean": 4.8
+}

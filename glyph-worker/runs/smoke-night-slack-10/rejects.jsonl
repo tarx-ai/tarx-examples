@@ -1,0 +1,1 @@
+{"reason":"invalid JSON","line":"{\"schema\":\"tarx.conversation.v1\",\"channel\":\"slack\",\"scenario\":\"Owner in a Slack thread requests meeting scheduling that requires approval confirmation from the agent.\",\"edge_cases\":[\"threading\",\"appro"}

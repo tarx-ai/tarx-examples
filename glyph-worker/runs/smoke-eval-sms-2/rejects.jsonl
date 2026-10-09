@@ -1,0 +1,5 @@
+{"reason":"schema: turn 2 duplicate_of","line":"{\"schema\":\"tarx.conversation.v1\",\"channel\":\"sms\",\"scenario\":\"A user request to set a reminder results in a duplicate SMS delivery.\",\"edge_cases\":[\"duplicate_delivery\"],\"turns\":[{\"role\":\"user\",\"text\":\""}
+{"reason":"schema: turn 2 duplicate_of","line":"{\"schema\":\"tarx.conversation.v1\",\"channel\":\"sms\",\"scenario\":\"A quick scheduling query is met with a duplicate delivery and a HELP request.\",\"edge_cases\":[\"duplicate_delivery\",\"help_keyword\"],\"turns\":["}
+{"reason":"invalid JSON","line":"{\"schema\":\"tarx.conversation.v1\",\"channel\":\"sms\",\"scenario\":\"A simple reminder request is processed with no interruptions, serving as a stable baseline for the batch.\",\"edge_cases\":[\"none\"],\"turns\":[{"}
+{"reason":"call failed: price guard: team total_used rose by 0.035000000","line":""}
+{"reason":"call failed: price guard: team total_used rose by 0.035000000","line":""}
