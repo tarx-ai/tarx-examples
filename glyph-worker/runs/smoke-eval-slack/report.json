@@ -1,0 +1,36 @@
+{
+  "channel": "slack",
+  "requested": 200,
+  "generated": 240,
+  "accepted": 200,
+  "rejected": 0,
+  "surplusDropped": 40,
+  "replyCountMismatch": [
+    "slack-779c57b2b9",
+    "slack-21b4a2c693",
+    "slack-ec7ed30ea7",
+    "slack-5b683413b1"
+  ],
+  "duplicateTagWithoutRef": [],
+  "rejectReasons": {},
+  "edgeCaseCoverage": {
+    "duplicate_delivery": 41,
+    "threading": 46,
+    "long_context": 21,
+    "none": 35,
+    "non_allowlisted_sender": 12,
+    "unicode_emoji": 18,
+    "rapid_fire": 20,
+    "out_of_order": 14,
+    "media_only": 14,
+    "approval_prompt": 17,
+    "ambiguous_request": 18,
+    "provider_error_retry": 17,
+    "opt_in_resume": 3,
+    "opt_out": 1,
+    "help_keyword": 1
+  },
+  "turnsMin": 2,
+  "turnsMax": 8,
+  "turnsMean": 4.6
+}
