@@ -22,6 +22,10 @@ So: point it at public inputs, give it long-running review and data jobs, and ke
 | 10 | **Weekly model battery**: re-run the synthetic battery; alert if price, latency, or quality changes (the price guard aborts on any non-zero price) | Med: protects the $0 assumption | S | `check` + battery | private ops log |
 | 11 | **Release notes / changelog** drafts from merged diffs | Low–Med | S | `review` (summary prompt) | `CHANGELOG.md` PRs |
 
+## How a new connector attaches
+
+Read `eve-connectors/ATTACHMENT.md` and `packages/connector-kit/src/attachment.ts` before a spec or a scaffold. A connector is a manifest plus the harness steps (verify, dedupe, allowlist, ack, model, reply) plus the four `tarx.connector.*` metrics. Do not add a UI catalog row. Do not mark a card connected. Status stays `source` until a person live-verifies it.
+
 ## Guardrails for every item
 - **Inputs:** public repos and paths only (`GLYPH_PUBLIC_PATHS`), synthetic data, public URLs. Never TARX runtime code, private repos, customer data, credentials, hostnames, or anything about private infrastructure.
 - **Outputs:** proposals under `runs/` only. The TARX agent runs tests, triages, and commits; a human approves pushes. Glyph never posts, comments, commits, or pushes.

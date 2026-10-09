@@ -1,4 +1,5 @@
 export * from "./manifest.js";
+export * from "./attachment.js";
 export * from "./verify.js";
 export * from "./retry.js";
 export * from "./rate-limit.js";
