@@ -1,0 +1,1 @@
+{"reason":"schema: edge_cases","line":"{\"schema\":\"tarx.conversation.v1\",\"channel\":\"email\",\"scenario\":\"The agent must detect and safely ignore a duplicate email delivery while scheduling a follow-up reminder.\",\"edge_cases\":[\"duplicate_deliv"}
