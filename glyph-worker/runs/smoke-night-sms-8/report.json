@@ -1,0 +1,34 @@
+{
+  "channel": "sms",
+  "requested": 40,
+  "generated": 48,
+  "accepted": 40,
+  "rejected": 0,
+  "surplusDropped": 8,
+  "replyCountMismatch": [
+    "sms-d8e8c19a0e",
+    "sms-019519206c"
+  ],
+  "duplicateTagWithoutRef": [],
+  "rejectReasons": {},
+  "edgeCaseCoverage": {
+    "none": 9,
+    "duplicate_delivery": 7,
+    "opt_out": 2,
+    "help_keyword": 3,
+    "opt_in_resume": 3,
+    "long_context": 3,
+    "non_allowlisted_sender": 3,
+    "unicode_emoji": 4,
+    "multi_segment": 2,
+    "rapid_fire": 2,
+    "out_of_order": 2,
+    "media_only": 2,
+    "approval_prompt": 2,
+    "provider_error_retry": 2,
+    "ambiguous_request": 2
+  },
+  "turnsMin": 3,
+  "turnsMax": 8,
+  "turnsMean": 4.8
+}
