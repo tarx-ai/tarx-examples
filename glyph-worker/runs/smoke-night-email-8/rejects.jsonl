@@ -1,0 +1,2 @@
+{"reason":"invalid JSON","line":"{\"schema\":\"tarx.conversation.v1\",\"channel\":\"email\",\"scenario\":\"The owner asks an extremely ambiguous question, causing the agent to need clarification before taking any action.\",\"edge_cases\":[\"ambiguo"}
+{"reason":"invalid JSON","line":"{\"schema\":\"tarx.conversation.v1\",\"channel\":\"email\",\"scenario\":\"An approval is needed for an automated action, but an outbound attempt fails and must retry before completing the approved task.\",\"edge_c"}
