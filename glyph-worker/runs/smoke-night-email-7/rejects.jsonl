@@ -1,0 +1,1 @@
+{"reason":"schema: turn 2 unknown key references; turn 4 unknown key references","line":"{\"schema\":\"tarx.conversation.v1\",\"channel\":\"email\",\"scenario\":\"The owner has a lengthy, threaded discussion about an upcoming event and requests a formal summary.\",\"edge_cases\":[\"threading\",\"long_cont"}
