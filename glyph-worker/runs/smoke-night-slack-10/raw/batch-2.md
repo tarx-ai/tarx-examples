@@ -1,0 +1,2 @@
+```jsonl
+{"schema":"tarx.conversation.v1","channel":"slack","scenario":"Owner in a Slack thread requests meeting scheduling that requires approval confirmation from the agent.","edge_cases":["threading","approval_prompt"],"turns":[{"role":"user","text":"please schedule 1:1 with Alex next Tue 10 AM PT in thread","t_offset_s":0
