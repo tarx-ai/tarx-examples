@@ -1,0 +1,44 @@
+{
+  "channel": "sms",
+  "requested": 200,
+  "generated": 228,
+  "accepted": 200,
+  "rejected": 5,
+  "surplusDropped": 25,
+  "replyCountMismatch": [
+    "sms-928b375fbc",
+    "sms-be0bb15beb",
+    "sms-a7de1f6cb9",
+    "sms-779f30280d",
+    "sms-68125be8cf",
+    "sms-d746ea54e4",
+    "sms-7d5450e122"
+  ],
+  "duplicateTagWithoutRef": [],
+  "rejectReasons": {
+    "schema": 2,
+    "invalid JSON": 1,
+    "call failed": 2
+  },
+  "edgeCaseCoverage": {
+    "opt_out": 14,
+    "help_keyword": 12,
+    "none": 40,
+    "opt_in_resume": 17,
+    "long_context": 18,
+    "non_allowlisted_sender": 14,
+    "duplicate_delivery": 30,
+    "unicode_emoji": 16,
+    "multi_segment": 12,
+    "rapid_fire": 13,
+    "out_of_order": 12,
+    "media_only": 10,
+    "approval_prompt": 13,
+    "ambiguous_request": 12,
+    "provider_error_retry": 13,
+    "threading": 1
+  },
+  "turnsMin": 2,
+  "turnsMax": 10,
+  "turnsMean": 4.9
+}
