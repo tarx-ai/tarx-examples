@@ -73,3 +73,18 @@ node src/cli.ts guard eve-connectors/README.md
 - Dataset rows are synthetic and go through schema validation, dedupe, and the boundary scan before anyone uses them.
 
 See [`SCOPE.md`](SCOPE.md) for the ranked backlog and [`schemas/conversation.v1.json`](schemas/conversation.v1.json) for the dataset schema. `samples/` holds a synthetic sample produced by the smoke test.
+
+## Sovereign mode (own compute, e.g. compute.tarx.com)
+
+Point glyph at your own OpenAI-compatible endpoint and disable the marketplace
+price guard (there is no external price to verify on your own metal):
+
+```
+GLYPH_BASE_URL=https://compute.tarx.com/v1
+GLYPH_MODEL=tarx/t-supercomputer
+AI_GATEWAY_API_KEY_FILE=~/.config/tarx-connectors/compute-gateway.key
+GLYPH_SPEND_GUARD=off   # off = skip the $0 catalog price check (sovereign)
+```
+
+With `GLYPH_SPEND_GUARD=off` the price guard is fully bypassed. Keep it `strict`
+(the default) on an external marketplace to enforce the $0 assumption.

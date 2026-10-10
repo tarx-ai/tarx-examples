@@ -55,6 +55,11 @@ export class PriceGuard {
 
   /** Run before every request (a short cache avoids re-hitting the catalog for parallel fan-out). */
   async check(): Promise<void> {
+    // "off" means off: on our own sovereign compute (e.g. compute.tarx.com) there is
+    // no external marketplace catalog/pricing to verify — the $0 guard is a Vercel-AI-
+    // Gateway construct and does not apply. Skip the catalog price check entirely.
+    // (On the external marketplace, keep spendGuard "strict" to enforce $0.)
+    if (this.o.spendGuard === "off") return;
     if (Date.now() - this.checkedAt > (this.o.cacheMs ?? 20_000)) {
       const cat = await this.getJson("/models");
       const list = (Array.isArray(cat.data) ? cat.data : cat) as Array<Record<string, Json>>;
