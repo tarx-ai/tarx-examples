@@ -1,0 +1,13 @@
+{
+  "schema": "tarx.gateway_turn.v1",
+  "live_source": "none",
+  "intended_log": "~/.tarx/always-on/gateway-turns.jsonl",
+  "note": "The gateway does not write this log. glyph-worker calls.jsonl is dataset generation, not a live turn. Datadog tarx.connector.turn_ms is unwired (noopTelemetry in the Eve connector runtime) and is not this source.",
+  "fields": {
+    "turn_id": "Provider completion id from the gateway response.",
+    "ask": "Short label of the request. Do not store secrets or a full user prompt.",
+    "model_text_before_gate": "Model text before evidence-gate.ts. Null when the gateway only returns the buffered body.",
+    "gate_result": "buffered | appended_stdout | rejected_fabrication | header_absent",
+    "tool_stdout_present": "y or n. Whether the returned body contains tool stdout."
+  }
+}

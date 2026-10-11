@@ -1,0 +1,12 @@
+{
+  "schema": "tarx.gateway_turn.v1",
+  "captured_at": "2026-10-11",
+  "via": "https://compute.tarx.com/v1/chat/completions",
+  "http_status": 200,
+  "turn_id": "chatcmpl-4f7e6cc1-5a59-4e73-94eb-80310661ec34",
+  "ask": "One-line proof reply. Full prompt not stored.",
+  "model_text_before_gate": null,
+  "gate_result": "header_absent",
+  "tool_stdout_present": "y",
+  "observation": "Non-stream response body started with the proof line and then included command stdout, so the evidence gate appended stdout. The x-tarx-evidence-gate header was absent on this non-stream response. Pre-gate model text is not on the wire."
+}
