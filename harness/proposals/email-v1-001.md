@@ -1,6 +1,6 @@
 # Email harness proposal 001
 
-Status: not applied. Kiro or a human reviews this before any promotion.
+Status: not applied. A human reviews this before any promotion. No Kiro gate this week.
 
 ## Proposer
 
@@ -35,4 +35,4 @@ The proposer completion was the proof line only. It did not name a file, a rule,
 
 ## Review
 
-Do not promote. A later pass may propose again only against the train split, and only with a diff a reviewer can apply by hand.
+Do not promote. Human review only. A later pass may propose again only against the train split, and only with a diff a reviewer can apply by hand.
